@@ -14,7 +14,8 @@ export const Heading = () => {
 				better, faster work happens.
 			</h3>
 			<Button>
-				Enter NoteKeep <ArrowRight className="h-4 w-4 ml-2" />
+				Enter NoteKeep
+				<ArrowRight className="h-4 w-4 ml-2" />
 			</Button>
 		</div>
 	);
