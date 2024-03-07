@@ -1,16 +1,16 @@
 "use client";
 
-import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from "lucide-react";
+import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings } from "lucide-react";
 import { ElementRef, useRef, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useMediaQuery } from "usehooks-ts";
 import { useMutation } from "convex/react";
+import { toast } from "sonner";
 
 import { DocumentList } from "./document-list";
 import { api } from "@/convex/_generated/api";
 import { UserItem } from "./user-item";
 import { cn } from "@/lib/utils";
-import { toast } from "sonner";
 import { Item } from "./item";
 
 export const Navigation = () => {
@@ -132,6 +132,7 @@ export const Navigation = () => {
 
 				<div className="mt-4">
 					<DocumentList />
+					<Item onClick={handleCreate} icon={Plus} label="Add a page" />
 				</div>
 
 				<div
