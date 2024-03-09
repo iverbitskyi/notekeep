@@ -1,5 +1,6 @@
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ModalProvider } from "@/components/providers/modal-provider";
 import "./globals.css";
 
 import { Inter } from "next/font/google";
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						storageKey="notekeep-theme-2"
 					>
 						<Toaster position="bottom-center" />
+						<ModalProvider />
 						{children}
 					</ThemeProvider>
 				</ConvexClientProvider>
