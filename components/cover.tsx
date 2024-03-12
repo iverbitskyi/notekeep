@@ -1,6 +1,7 @@
 "use client";
 
 import { useCoverImage } from "@/hooks/use-cover-image";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Id } from "@/convex/_generated/dataModel";
 import { Button } from "@/components/ui/button";
 import { useEdgeStore } from "@/lib/edgestore";
@@ -57,4 +58,8 @@ export const Cover = ({ url, preview }: CoverImageProps) => {
 			)}
 		</div>
 	);
+};
+
+Cover.Skeleton = function CoverSkeleton() {
+	return <Skeleton className="w-full h-[12vh]" />;
 };
