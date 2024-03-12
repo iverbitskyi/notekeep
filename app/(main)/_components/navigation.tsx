@@ -1,8 +1,8 @@
 "use client";
 
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { ElementRef, useRef, useState, useEffect } from "react";
-import { useParams, usePathname } from "next/navigation";
 import { useMediaQuery } from "usehooks-ts";
 import { useMutation } from "convex/react";
 import { toast } from "sonner";
@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import { Item } from "./item";
 
 export const Navigation = () => {
+	const router = useRouter();
 	const settings = useSettings();
 	const search = useSearch();
 	const params = useParams();
@@ -100,7 +101,7 @@ export const Navigation = () => {
 	};
 
 	const handleCreate = () => {
-		const promise = create({ title: "Untitled" });
+		const promise = create({ title: "Untitled" }).then((documentId) => router.push(`/documents/${documentId}`));
 
 		toast.promise(promise, {
 			loading: "Creating a new note...",
